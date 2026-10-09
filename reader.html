@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102c22">
+<title>Online Book Reader | Free Books Slabus</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f8f4;color:#183326}
+header{background:#102c22;color:white;padding:18px}
+header a{color:#fff;text-decoration:none}
+main{max-width:900px;margin:auto;padding:20px 14px}
+.panel{background:white;padding:20px;border-radius:14px;border:1px solid #dce8df}
+h1{font-size:25px;margin-top:0}
+p{line-height:1.6}
+input,button{font:inherit;padding:12px;border-radius:8px}
+input{width:100%;border:1px solid #cbd9cf;margin:10px 0}
+button{background:#146c43;color:white;border:0;cursor:pointer}
+#viewer{margin-top:18px;display:none}
+#pages{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:12px 0}
+#pageNumber{font-weight:bold}
+iframe{width:100%;height:70vh;border:1px solid #dce8df;border-radius:10px;background:#fff}
+.small{font-size:13px;color:#5b7062}
+</style>
+</head>
+<body>
+<header>
+  <a href="./">← Free Books Slabus</a>
+</header>
+<main>
+  <section class="panel">
+    <h1>📚 Online Book Reader</h1>
+    <p>Apni authorized ya officially free PDF file select karo aur book ko yahan parho.</p>
+    <label for="pdfFile">Choose a PDF book</label>
+    <input id="pdfFile" type="file" accept="application/pdf,.pdf">
+    <p class="small">Privacy: selected file tumhare browser mein khulti hai. Ye demo PDF ko website par upload nahi karta.</p>
+    <div id="viewer">
+      <div id="pages">
+        <button id="prev">← Previous</button>
+        <span id="pageNumber">PDF selected</span>
+        <button id="next">Next →</button>
+      </div>
+      <iframe id="pdfFrame" title="PDF book reader"></iframe>
+      <p class="small">Page controls aur zoom tumhare browser ke PDF viewer par depend karte hain.</p>
+    </div>
+  </section>
+</main>
+<script>
+let currentURL="";
+const fileInput=document.getElementById("pdfFile");
+fileInput.addEventListener("change",()=>{
+  const file=fileInput.files[0];
+  if(!file)return;
+  if(currentURL)URL.revokeObjectURL(currentURL);
+  currentURL=URL.createObjectURL(file);
+  document.getElementById("pdfFrame").src=currentURL;
+  document.getElementById("viewer").style.display="block";
+  document.getElementById("pageNumber").textContent=file.name;
+});
+document.getElementById("prev").addEventListener("click",()=>{
+  document.getElementById("pdfFrame").contentWindow?.postMessage("prevPage","*");
+});
+document.getElementById("next").addEventListener("click",()=>{
+  document.getElementById("pdfFrame").contentWindow?.postMessage("nextPage","*");
+});
+</script>
+</body>
+</html>
