@@ -1,165 +1,770 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#102c22">
-<title>Free Books Slabus | Class 9 Pakistan</title>
-<style>
-:root{--green:#146c43;--dark:#102c22;--light:#f3f8f4;--gold:#f2c14e}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:#1c2b23}
-header{background:linear-gradient(135deg,#102c22,#146c43);color:white;padding:28px 18px 36px}
-nav,.wrap{max-width:1050px;margin:auto}
-nav{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.logo{font-size:21px;font-weight:800}
-.pill{border:1px solid #ffffff70;border-radius:30px;padding:8px 12px;font-size:12px}
-.hero{text-align:center;padding:35px 0 10px}
-.hero h1{font-size:clamp(30px,7vw,48px);margin:0 0 12px}
-.hero p{line-height:1.6;color:#e1eee6;max-width:600px;margin:auto}
-.searchbox{max-width:720px;margin:24px auto 0;background:white;padding:8px;border-radius:15px;display:flex;gap:8px}
-input,select{font:inherit;min-width:0;width:100%;padding:13px;border:1px solid #dce6de;border-radius:9px;background:white;color:#24382d}
-.searchbox input{border:0;outline:0}
-button{font:inherit;cursor:pointer;border:0;border-radius:9px;padding:12px 16px;background:var(--green);color:white;font-weight:bold}
-main{max-width:1050px;margin:auto;padding:24px 16px 50px}
-h2{font-size:22px;margin:20px 0 14px}
-.filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:24px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}
-.stat,.card,.notice{background:white;border:1px solid #e1eae3;border-radius:14px;padding:16px}
-.stat strong{display:block;font-size:23px;color:var(--green);margin-bottom:4px}
-.stat span,.muted{font-size:13px;color:#65766b}
-.publishers{display:flex;flex-wrap:wrap;gap:8px}
-.pub{background:#fff;color:#24553b;border:1px solid #d5e5d9;padding:10px 13px;border-radius:30px}
-.pub.active{background:var(--green);color:white}
-.books{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.card{display:flex;flex-direction:column;gap:10px}
-.bookicon{height:82px;border-radius:10px;background:linear-gradient(135deg,#e3f2e7,#f9f3d9);display:grid;place-items:center;font-size:35px}
-.tag{font-size:11px;background:#edf6ef;color:#286441;border-radius:20px;padding:5px 8px;display:inline-block;width:max-content}
-.card h3{margin:0;font-size:17px;line-height:1.4}
-.card p{margin:0;line-height:1.5;font-size:13px;color:#65766b}
-.card button{margin-top:auto}
-.card button:disabled{background:#e8eee9;color:#58695e;cursor:default}
-.notice{margin-top:24px;font-size:13px;line-height:1.7;color:#52645a}
-footer{text-align:center;background:var(--dark);color:#e4eee7;padding:25px 16px;font-size:13px;line-height:1.8}
-.empty{grid-column:1/-1;text-align:center;padding:35px;background:white;border-radius:14px}
-@media(max-width:650px){.filters{grid-template-columns:1fr}.books{grid-template-columns:repeat(2,minmax(0,1fr))}.searchbox{flex-direction:column}.searchbox button{width:100%}.logo{font-size:17px}.card{padding:11px}.stats{gap:7px}.stat{padding:11px}.stat strong{font-size:19px}}
-@media(max-width:380px){.books{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#116149">
+  <meta name="description" content="GHS-FreeBooks — Class 9 books, syllabus and learning resources in Pakistan.">
+  <title>GHS-FreeBooks | Books & Syllabus</title>
+
+  <style>
+    :root {
+      --green: #116149;
+      --dark: #103d31;
+      --mint: #eaf7f0;
+      --gold: #e6b85c;
+      --white: #ffffff;
+      --text: #1e3029;
+      --muted: #64756d;
+      --border: #dce9e1;
+      --bg: #f6faf7;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    button, input, select { font: inherit; }
+
+    button, .btn {
+      cursor: pointer;
+      border: 0;
+      border-radius: 11px;
+      padding: 11px 15px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      transition: transform .15s, background .15s;
+    }
+
+    button:hover, .btn:hover { transform: translateY(-1px); }
+
+    .topbar {
+      background: var(--dark);
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 13px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 850;
+      font-size: 21px;
+      color: var(--green);
+    }
+
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
+      background: var(--mint);
+      font-size: 23px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    nav a:hover { color: var(--green); }
+
+    main {
+      max-width: 1150px;
+      padding: 0 20px;
+      margin: auto;
+    }
+
+    .hero {
+      margin: 28px 0;
+      padding: 44px 32px;
+      border-radius: 25px;
+      color: white;
+      background: linear-gradient(120deg, #103d31, #147756);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "📚";
+      position: absolute;
+      right: 5%;
+      top: 20px;
+      font-size: clamp(75px, 12vw, 145px);
+      opacity: .16;
+      transform: rotate(-12deg);
+    }
+
+    .eyebrow {
+      color: #ffe0a0;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 660px;
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.12;
+      margin: 13px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      max-width: 590px;
+      color: #e1f1e8;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .btn {
+      margin-top: 10px;
+      background: var(--gold);
+      color: #30230b;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      margin: 24px 0 40px;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 17px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--green);
+      font-size: 18px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section { scroll-margin-top: 100px; }
+
+    .section-head {
+      margin: 36px 0 18px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(24px, 4vw, 32px);
+      line-height: 1.2;
+      margin: 0 0 7px;
+    }
+
+    .section-head p, .muted { color: var(--muted); }
+
+    .filters {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .field input, .field select {
+      width: 100%;
+      min-width: 0;
+      padding: 12px;
+      background: white;
+      border: 1px solid #d4e1d8;
+      border-radius: 10px;
+      color: var(--text);
+    }
+
+    .reset {
+      background: #edf5ef;
+      color: var(--green);
+      margin-top: 12px;
+    }
+
+    .results-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+      box-shadow: 0 5px 20px rgba(18, 66, 44, .035);
+    }
+
+    .book-icon {
+      display: grid;
+      place-items: center;
+      width: 57px;
+      height: 57px;
+      background: var(--mint);
+      border-radius: 15px;
+      font-size: 29px;
+      margin-bottom: 13px;
+    }
+
+    .pill {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--green);
+      background: var(--mint);
+      border-radius: 30px;
+      padding: 5px 10px;
+    }
+
+    .card h3 {
+      margin: 12px 0 7px;
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 5px 0;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .card .description { color: var(--muted); }
+
+    .status {
+      display: inline-block;
+      color: #795716;
+      background: #fff4d9;
+      border-radius: 8px;
+      padding: 5px 8px;
+      margin: 12px 0;
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 14px;
+      width: 100%;
+    }
+
+    .card-actions .btn {
+      flex: 1 1 120px;
+      font-size: 13px;
+    }
+
+    .primary {
+      color: white;
+      background: var(--green);
+    }
+
+    .secondary {
+      background: #edf5ef;
+      color: var(--green);
+    }
+
+    .empty {
+      display: none;
+      background: white;
+      border: 1px dashed #b8cfc0;
+      border-radius: 16px;
+      text-align: center;
+      padding: 35px 15px;
+      color: var(--muted);
+    }
+
+    .syllabus-grid, .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .info-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 19px;
+    }
+
+    .info-card .symbol { font-size: 25px; }
+
+    .info-card h3 { margin: 8px 0; }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .notice {
+      border-left: 4px solid var(--gold);
+      background: #fff8e8;
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin: 20px 0;
+    }
+
+    footer {
+      margin-top: 55px;
+      background: #103d31;
+      color: white;
+      padding: 28px 20px;
+    }
+
+    .footer-inner {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      margin: 4px 0;
+      font-size: 13px;
+      color: #d4e8dc;
+    }
+
+    @media (max-width: 850px) {
+      .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .syllabus-grid, .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 540px) {
+      .nav { padding: 12px 15px; }
+      .brand { font-size: 18px; }
+      nav { gap: 12px; }
+      nav a { font-size: 12px; }
+      main { padding: 0 14px; }
+      .hero { padding: 30px 21px; }
+      .hero::after { right: -12px; top: 12px; }
+      .stats { gap: 8px; }
+      .stat { padding: 12px 9px; }
+      .stat strong { font-size: 15px; }
+      .stat span { font-size: 11px; }
+      .filters { grid-template-columns: 1fr; padding: 14px; }
+      .book-grid, .syllabus-grid, .info-grid {
+        grid-template-columns: 1fr;
+      }
+      .card { padding: 17px; }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-  <nav>
-    <div class="logo">📚 Free Books Slabus</div>
-    <span class="pill">PAKISTAN · CLASS 9</span>
-  </nav>
-  <section class="hero">
-    <h1>Your Class 9 Book Library</h1>
-    <p>Find textbooks by publisher, subject, board and language. A simple starting point for students across Pakistan.</p>
-    <div class="searchbox">
-      <input id="search" placeholder="Search: Physics, Biology, publisher..." aria-label="Search books">
-      <button id="searchBtn">Search Books</button>
+  <div class="topbar">
+    Free educational resources · Class 9 · Pakistan
+  </div>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="#home">
+        <span class="logo">📚</span>
+        <span>GHS-FreeBooks</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#books">Books</a>
+        <a href="#syllabus">Syllabus</a>
+        <a href="#publishers">Publishers</a>
+        <a href="#about">About</a>
+      </nav>
     </div>
-  </section>
-</header>
-<main>
-  <div class="stats">
-    <div class="stat"><strong>Class 9</strong><span>Current collection</span></div>
-    <div class="stat"><strong>2</strong><span>Book mediums</span></div>
-    <div class="stat"><strong>Pakistan</strong><span>Target coverage</span></div>
-  </div>
-  <h2>Find Your Books</h2>
-  <div class="filters">
-    <select id="board" aria-label="Education board">
-      <option value="">All boards / regions</option>
-      <option>Punjab</option><option>Sindh</option><option>Khyber Pakhtunkhwa</option>
-      <option>Balochistan</option><option>Federal</option><option>AJK</option><option>Gilgit-Baltistan</option>
-    </select>
-    <select id="medium" aria-label="Book medium">
-      <option value="">Urdu + English</option>
-      <option>English</option><option>Urdu</option>
-    </select>
-    <select id="subject" aria-label="Book subject">
-      <option value="">All subjects</option>
-      <option>Mathematics</option><option>Physics</option><option>Chemistry</option>
-      <option>Biology</option><option>Computer Science</option><option>English</option>
-      <option>Urdu</option><option>Pakistan Studies</option><option>Islamiat</option>
-    </select>
-  </div>
-  <h2>Browse Publishers</h2>
-  <p class="muted">Choose a publisher to filter its books. The directory will grow as entries are verified.</p>
-  <div id="publishers" class="publishers"></div>
-  <h2 id="resultsTitle">Class 9 Book Directory</h2>
-  <div id="books" class="books"></div>
-<div style="text-align:center;margin:20px auto;padding:15px">
-  <a href="./reader.html" style="display:inline-block;background:#146c43;color:white;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:bold">
-    📚 Open Online Book Reader
-  </a>
-</div>
-  <div class="notice">
-    <strong>About downloads:</strong> This is the initial website prototype. Book entries below are illustrative catalogue examples, not verified editions or confirmed download files. Official free PDFs and publisher links will be added after checking their source and availability. Copyrighted books will not be re-hosted without permission.
-  </div>
-</main>
-<footer>
-  <strong>Free Books Slabus</strong><br>
-  A student-focused Class 9 book directory for Pakistan.<br>
-  Always check your board's current syllabus and edition.
-</footer>
-<script>
-const data = [
- {title:"Mathematics — Class 9",publisher:"Punjab Textbook Board",subject:"Mathematics",medium:"English",board:"Punjab"},
- {title:"Physics — Class 9",publisher:"Punjab Textbook Board",subject:"Physics",medium:"English",board:"Punjab"},
- {title:"Chemistry — Class 9",publisher:"Punjab Textbook Board",subject:"Chemistry",medium:"English",board:"Punjab"},
- {title:"Biology — Class 9",publisher:"Punjab Textbook Board",subject:"Biology",medium:"English",board:"Punjab"},
- {title:"Computer Science — Class 9",publisher:"Punjab Textbook Board",subject:"Computer Science",medium:"English",board:"Punjab"},
- {title:"English — Class 9",publisher:"Punjab Textbook Board",subject:"English",medium:"English",board:"Punjab"},
- {title:"Urdu — Class 9",publisher:"Punjab Textbook Board",subject:"Urdu",medium:"Urdu",board:"Punjab"},
- {title:"Pakistan Studies — Class 9",publisher:"Punjab Textbook Board",subject:"Pakistan Studies",medium:"Urdu",board:"Punjab"},
- {title:"Islamiat — Class 9",publisher:"Punjab Textbook Board",subject:"Islamiat",medium:"Urdu",board:"Punjab"},
- {title:"Mathematics — Class 9",publisher:"Sindh Textbook Board",subject:"Mathematics",medium:"English",board:"Sindh"},
- {title:"Physics — Class 9",publisher:"Sindh Textbook Board",subject:"Physics",medium:"English",board:"Sindh"},
- {title:"English — Class 9",publisher:"Khyber Pakhtunkhwa Textbook Board",subject:"English",medium:"English",board:"Khyber Pakhtunkhwa"},
- {title:"Mathematics — Class 9",publisher:"Balochistan Textbook Board",subject:"Mathematics",medium:"English",board:"Balochistan"},
- {title:"Physics — Class 9",publisher:"Federal Textbook Board",subject:"Physics",medium:"English",board:"Federal"}
-];
-let chosenPublisher = "";
-const icons = {Mathematics:"📐",Physics:"⚛️",Chemistry:"🧪",Biology:"🧬","Computer Science":"💻",English:"🔤",Urdu:"📖","Pakistan Studies":"🇵🇰",Islamiat:"🌙"};
-const $ = id => document.getElementById(id);
-function publishers(){
- const names = ["All publishers", ...new Set(data.map(x=>x.publisher))];
- $("publishers").innerHTML = names.map(name =>
- `<button class="pub ${(!chosenPublisher&&name==="All publishers")||chosenPublisher===name?"active":""}" data-pub="${name}">${name}</button>`
- ).join("");
- document.querySelectorAll("[data-pub]").forEach(btn=>btn.addEventListener("click",()=>{
-   chosenPublisher=btn.dataset.pub==="All publishers"?"":btn.dataset.pub;
-   publishers(); render();
- }));
-}
-function render(){
- const q=$("search").value.trim().toLowerCase();
- const board=$("board").value, medium=$("medium").value, subject=$("subject").value;
- const found=data.filter(b=>
-   (!q||[b.title,b.publisher,b.subject,b.medium,b.board].some(v=>v.toLowerCase().includes(q)))&&
-   (!board||b.board===board)&&(!medium||b.medium===medium)&&
-   (!subject||b.subject===subject)&&(!chosenPublisher||b.publisher===chosenPublisher)
- );
- $("resultsTitle").textContent=`${found.length} book listings`;
- $("books").innerHTML=found.length?found.map(b=>`
-  <article class="card">
-   <div class="bookicon">${icons[b.subject]||"📘"}</div>
-   <span class="tag">${b.medium} medium</span>
-   <h3>${b.title}</h3>
-   <p>Publisher: ${b.publisher}</p>
-   <p>Board/region: ${b.board}</p>
-   <p>Catalogue status: sample entry — verification pending</p>
-   <button disabled>Official link coming soon</button>
-  </article>`).join(""):`<div class="empty">No matching books found. Try changing your search or filters.</div>`;
-}
-$("search").addEventListener("input",render);
-$("searchBtn").addEventListener("click",render);
-["board","medium","subject"].forEach(id=>$(id).addEventListener("change",render));
-publishers();render();
-</script>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="eyebrow">Your learning library</div>
+      <h1>Books, Syllabus & Learning — All in One Place.</h1>
+      <p>
+        Explore Class 9 textbooks and syllabus resources.
+        Search by subject, publisher, board and medium.
+      </p>
+      <a class="btn" href="#books">📖 Explore Books</a>
+    </section>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>Class 9</strong>
+        <span>Current focus</span>
+      </div>
+      <div class="stat">
+        <strong>Pakistan</strong>
+        <span>Board and region directory</span>
+      </div>
+      <div class="stat">
+        <strong>Urdu + English</strong>
+        <span>Medium filters</span>
+      </div>
+    </div>
+
+    <section id="books">
+      <div class="section-head">
+        <h2>📚 Explore Free Books</h2>
+        <p class="muted">Find textbooks by subject, medium, publisher and board.</p>
+      </div>
+
+      <div class="filters">
+        <div class="field">
+          <label for="search">Search books</label>
+          <input id="search" type="search"
+            placeholder="e.g. Computer Science, Physics..."
+            autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="medium">Book medium</label>
+          <select id="medium">
+            <option value="">All mediums</option>
+            <option value="English">English</option>
+            <option value="Urdu">Urdu</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="publisher">Publisher</label>
+          <select id="publisher">
+            <option value="">All publishers</option>
+            <option value="Punjab Textbook Board">Punjab Textbook Board</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="board">Board / Region</label>
+          <select id="board">
+            <option value="">All boards / regions</option>
+            <option value="Punjab">Punjab</option>
+          </select>
+        </div>
+
+        <button class="reset" id="resetFilters" type="button">
+          ↻ Reset filters
+        </button>
+      </div>
+
+      <div class="results-line">
+        <span id="resultCount" aria-live="polite">Showing 1 book</span>
+        <span>Catalogue: Class 9</span>
+      </div>
+
+      <div class="book-grid" id="bookGrid">
+        <article class="card searchable"
+          data-title="Computer Science"
+          data-medium="English"
+          data-publisher="Punjab Textbook Board"
+          data-board="Punjab">
+
+          <div class="book-icon">💻</div>
+          <span class="pill">CLASS 9</span>
+          <h3>Computer Science — Class 9</h3>
+
+          <p><strong>Medium:</strong> English</p>
+          <p><strong>Publisher:</strong> Punjab Textbook Board</p>
+          <p><strong>Board/Region:</strong> Punjab</p>
+
+          <p class="description">
+            Class 9 Computer Science textbook PDF.
+          </p>
+
+          <span class="status">
+            Source and edition verification pending
+          </span>
+
+          <div class="card-actions">
+            <a class="btn primary"
+              href="./2515-9th-class-computer-science-new-snc-punjab-textbook-pdf-%28taleem360.com%29-6NZK4.pdf"
+              target="_blank" rel="noopener">
+              📖 Read Online
+            </a>
+
+            <a class="btn secondary"
+              href="./2515-9th-class-computer-science-new-snc-punjab-textbook-pdf-%28taleem360.com%29-6NZK4.pdf"
+              download>
+              ⬇ Download PDF
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="empty" id="emptyState">
+        <div style="font-size:36px">🔎</div>
+        <h3>No matching books found</h3>
+        <p>Try another search or reset your filters.</p>
+      </div>
+
+      <div class="notice">
+        <strong>Catalogue notice:</strong> This is the initial catalogue.
+        A book appearing here does not by itself confirm the edition,
+        publisher or permission to redistribute its PDF. Please verify
+        these details before treating a file as an official textbook.
+      </div>
+    </section>
+
+    <section id="syllabus">
+      <div class="section-head">
+        <h2>📝 Class 9 Syllabus</h2>
+        <p>Browse subjects and find syllabus resources as they are verified.</p>
+      </div>
+
+      <div class="syllabus-grid">
+        <div class="info-card">
+          <div class="symbol">🔬</div>
+          <h3>Science subjects</h3>
+          <p>Physics, Chemistry and Biology syllabus resources will be added after verification.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="symbol">💻</div>
+          <h3>Computer Science</h3>
+          <p>Computer Science syllabus details are awaiting board and edition verification.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="symbol">📘</div>
+          <h3>Languages</h3>
+          <p>English and Urdu syllabus resources will be listed when verified.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="symbol">➗</div>
+          <h3>Mathematics</h3>
+          <p>Class 9 Mathematics syllabus resources will be added here.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="symbol">🌍</div>
+          <h3>Pakistan Studies</h3>
+          <p>Board-specific syllabus details will be added after verification.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="symbol">🕌</div>
+          <h3>Islamiyat</h3>
+          <p>Verified syllabus and learning resources will be listed here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publishers">
+      <div class="section-head">
+        <h2>🏛️ Publishers & Boards</h2>
+        <p>Our publisher directory will grow as book details are verified.</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="symbol">📚</div>
+          <h3>Punjab Textbook Board</h3>
+          <p>Punjab · Class 9 catalogue entry available for review.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="symbol">📖</div>
+          <h3>Other publishers</h3>
+          <p>Additional publishers and regional boards will be listed after their books and sources are checked.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="symbol">🇵🇰</div>
+          <h3>Pakistan-wide directory</h3>
+          <p>Designed to organise resources from different regions and boards.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <h2>ℹ️ About GHS-FreeBooks</h2>
+      </div>
+
+      <div class="info-card">
+        <h3>Government High School Sivia</h3>
+        <p>
+          GHS-FreeBooks is a student-focused project for organising
+          textbooks, syllabus information and learning resources in one place.
+        </p>
+        <p>
+          <strong>Current scope:</strong> Class 9 · Pakistan · English and Urdu mediums.
+        </p>
+        <p>
+          <strong>Important:</strong> Only PDFs that may legally be shared
+          should be hosted here. Otherwise, link to the official source.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>📚 GHS-FreeBooks</strong>
+        <p>Books, Syllabus & Learning — All in One Place.</p>
+        <p>Government High School Sivia</p>
+      </div>
+
+      <div>
+        <p>Class 9 · Pakistan</p>
+        <p>Credit: Asher</p>
+        <p>© <span id="year"></span> GHS-FreeBooks</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("search");
+    const mediumFilter = document.getElementById("medium");
+    const publisherFilter = document.getElementById("publisher");
+    const boardFilter = document.getElementById("board");
+    const resetButton = document.getElementById("resetFilters");
+    const cards = Array.from(
+      document.querySelectorAll("#bookGrid .searchable")
+    );
+    const resultCount = document.getElementById("resultCount");
+    const emptyState = document.getElementById("emptyState");
+
+    function filterBooks() {
+      const query = searchInput.value.trim().toLowerCase();
+      const medium = mediumFilter.value;
+      const publisher = publisherFilter.value;
+      const board = boardFilter.value;
+      let visible = 0;
+
+      cards.forEach(function(card) {
+        const searchableText = (
+          card.innerText + " " +
+          card.dataset.title + " " +
+          card.dataset.medium + " " +
+          card.dataset.publisher + " " +
+          card.dataset.board
+        ).toLowerCase();
+
+        const matchesSearch = searchableText.includes(query);
+        const matchesMedium =
+          !medium || card.dataset.medium === medium;
+        const matchesPublisher =
+          !publisher || card.dataset.publisher === publisher;
+        const matchesBoard =
+          !board || card.dataset.board === board;
+
+        const show =
+          matchesSearch &&
+          matchesMedium &&
+          matchesPublisher &&
+          matchesBoard;
+
+        card.hidden = !show;
+        if (show) visible++;
+      });
+
+      resultCount.textContent =
+        "Showing " + visible + (visible === 1 ? " book" : " books");
+
+      emptyState.style.display = visible === 0 ? "block" : "none";
+    }
+
+    searchInput.addEventListener("input", filterBooks);
+    mediumFilter.addEventListener("change", filterBooks);
+    publisherFilter.addEventListener("change", filterBooks);
+    boardFilter.addEventListener("change", filterBooks);
+
+    resetButton.addEventListener("click", function() {
+      searchInput.value = "";
+      mediumFilter.value = "";
+      publisherFilter.value = "";
+      boardFilter.value = "";
+      filterBooks();
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    filterBooks();
+  </script>
 </body>
   </html>
-  
