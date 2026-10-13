@@ -4,436 +4,405 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b392b">
-<meta name="description" content="GHS-FreeBooks: Class 9 books, syllabus and learning resources in one place.">
-<title>GHS-FreeBooks | Premium Class 9 Library</title>
+<meta name="theme-color" content="#0b604b">
+<title>GHS-FreeBooks | Class 9 Library</title>
+
 <style>
 :root{
-  --green:#116149;--dark:#092f25;--light:#e7f7ed;
-  --bg:#f4f8f5;--text:#172b22;--muted:#6c7b72;
-  --border:#dfe9e2;--white:#fff;--gold:#f3c76b;
-  --shadow:0 12px 34px rgba(9,47,37,.07);
+  --bg:#f2f7f4;
+  --card:#ffffff;
+  --text:#183b2e;
+  --muted:#6c7f75;
+  --green:#0b604b;
+  --green2:#138568;
+  --soft:#e4f4eb;
+  --border:#dce9e0;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:20px}
-body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  transition:.2s;
+}
+body.dark{
+  --bg:#101a15;--card:#1b2921;--text:#edf8f0;
+  --muted:#b0c4b7;--soft:#263d30;--border:#304639;
+}
 button,input,select{font:inherit}
-a{color:inherit}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+button,a{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1150px,94%);margin:auto}
 header{
-  padding:20px 20px 58px;color:white;overflow:hidden;
-  background:radial-gradient(ellipse at 90% 12%,#5ad69b32,transparent 35%),
-  radial-gradient(ellipse at 10% 100%,#ffffff12,transparent 35%),
-  linear-gradient(135deg,#082d22,#116149 62%,#16805a);
+  background:var(--card);border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:10
 }
-nav,.hero,main{max-width:1120px;margin-left:auto;margin-right:auto}
-nav{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
-.brand{font-size:23px;font-weight:900;letter-spacing:-.8px;text-decoration:none}
-.brand span{color:#aaf0c3}
-.navlinks{display:flex;gap:5px;flex-wrap:wrap}
-.navlinks a{color:#e6f6eb;text-decoration:none;padding:9px 12px;border-radius:10px;font-size:14px}
-.navlinks a:hover{background:#ffffff1c}
-.hero{padding-top:47px}
-.eyebrow{display:inline-block;background:#ffffff18;border:1px solid #ffffff30;border-radius:30px;padding:6px 12px;font-size:11px;letter-spacing:1px;font-weight:800;color:#c9f5d7}
-.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.08;letter-spacing:-2px;max-width:760px;margin:20px 0 16px;font-weight:900}
-.hero h1 span{color:#aaf0c3}
-.hero p{color:#d9eee1;max-width:650px;line-height:1.85;margin:0;font-size:16px}
-.hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:25px}
-.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;transition:transform .2s,filter .2s}
-.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
-.btn-primary{background:linear-gradient(135deg,#116149,#18825b);color:white;box-shadow:0 5px 15px #11614920}
-.btn-light{background:white;color:var(--green)}
-.btn-soft{background:var(--light);color:var(--green)}
-.btn-outline{background:white;color:var(--green);border:1px solid var(--border)}
-main{padding:0 18px;margin-top:-23px;position:relative}
-.panel,.book,.detail,.reader,.soon{background:white;border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
-.search-panel{margin-bottom:28px}
-.search-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.search-heading h2{font-size:24px;letter-spacing:-.6px;margin:0}
-.hint{font-size:13px;color:var(--muted);line-height:1.75}
-.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:11px;margin-top:17px}
-input,select{padding:14px;border:1px solid #d5e2d9;border-radius:12px;background:#fbfdfb;width:100%;min-width:0;color:var(--text)}
-input:focus,select:focus{border-color:var(--green);outline:none;box-shadow:0 0 0 4px #11614915}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:0 0 30px}
-.stat{background:white;border:1px solid var(--border);border-radius:16px;padding:17px;display:flex;align-items:center;gap:12px;box-shadow:0 5px 18px #103c3005}
-.stat-icon{height:44px;width:44px;border-radius:13px;background:var(--light);display:grid;place-items:center;font-size:21px;flex-shrink:0}
-.stat strong{display:block;font-size:22px;line-height:1.3}
-.stat span:last-child{font-size:12px;color:var(--muted)}
-.section-title{font-size:clamp(23px,3vw,29px);letter-spacing:-.7px;margin:34px 0 15px;font-weight:900}
-.section-subtitle{margin:-8px 0 17px;color:var(--muted);font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:17px}
-.book{padding:16px;display:flex;flex-direction:column;gap:12px;transition:transform .22s,border-color .22s,box-shadow .22s}
-.book:hover{transform:translateY(-4px);border-color:#b7d8c2;box-shadow:0 18px 38px #103c3014}
-.cover{height:155px;border-radius:14px;background:linear-gradient(145deg,#e6f8ec,#b9e7cc);display:grid;place-items:center;color:var(--green);position:relative;overflow:hidden}
-.cover:after{content:"";position:absolute;width:135px;height:135px;border:1px solid #11614919;border-radius:50%;right:-35px;top:-45px;box-shadow:0 0 0 18px #11614906,0 0 0 38px #11614904}
-.cover svg{width:70px;height:70px;position:relative;z-index:1}
-.book h3{font-size:21px;line-height:1.3;letter-spacing:-.4px;margin:0}
-.badge{display:inline-flex;align-items:center;gap:5px;background:var(--light);color:var(--green);padding:5px 10px;border-radius:30px;font-size:12px;font-weight:800;width:max-content;max-width:100%}
-.meta{color:var(--muted);font-size:13px;line-height:1.9;overflow-wrap:anywhere}
-.book .btn{width:100%;margin-top:auto}
-.category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:11px}
-.category{background:white;border:1px solid var(--border);border-radius:15px;padding:15px 13px;text-align:left;cursor:pointer;font-weight:750;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:62px;transition:transform .2s,border-color .2s,background .2s}
-.category:hover{border-color:#a9d5b8;background:#effaf2;transform:translateY(-2px)}
-.category small{display:block;color:var(--muted);font-weight:500;font-size:11px}
-.hidden{display:none!important}
-.actions{display:flex;gap:9px;flex-wrap:wrap}
-.actions .btn{flex:1}
-.notice{padding:14px;border-radius:12px;background:#fff8e7;color:#70551a;font-size:14px;line-height:1.7;border:1px solid #f3e6c4}
-.back{display:inline-block;color:var(--green);font-weight:800;text-decoration:none;margin-bottom:18px}
-.detail h1,.reader h1,.soon h1{margin-top:12px;line-height:1.2;letter-spacing:-.8px}
-.reader-frame{width:100%;height:72vh;min-height:400px;border:1px solid var(--border);border-radius:14px;background:#f1f5f2}
-.field{margin:20px 0}
-.field label{display:block;font-weight:800;margin-bottom:7px}
-footer{margin-top:48px;background:var(--dark);color:#d8e9df;padding:35px 18px;text-align:center;font-size:13px;line-height:2}
-footer strong{font-size:20px;color:white}
-footer a{color:white}
-.empty{padding:18px;background:white;border:1px dashed var(--border);border-radius:13px}
-@media(max-width:650px){
-  header{padding:17px 15px 45px}
-  nav{align-items:flex-start}
-  .brand{font-size:21px}
-  .navlinks{width:100%;gap:3px}
-  .navlinks a{padding:8px 10px;font-size:13px}
-  .hero{padding-top:28px}
-  .hero h1{font-size:39px;letter-spacing:-1.4px}
-  .hero p{font-size:14px}
-  main{padding:0 12px}
-  .filters{grid-template-columns:1fr}
-  .panel,.book,.detail,.reader,.soon{padding:16px}
-  .stats{gap:8px}
-  .stat{padding:11px 8px;display:block}
-  .stat-icon{height:36px;width:36px;margin-bottom:8px;font-size:18px}
-  .stat strong{font-size:19px}
-  .stat span:last-child{font-size:11px}
-  .grid{grid-template-columns:1fr}
-  .category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-  .category{padding:12px 10px;font-size:13px;min-height:60px}
-  .actions .btn{flex-basis:100%}
-  .reader-frame{height:65vh;min-height:350px}
+.nav{
+  min-height:72px;display:flex;align-items:center;
+  justify-content:space-between;gap:12px
 }
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--green)}
+.logo{font-size:25px;background:var(--soft);padding:12px;border-radius:13px}
+.brand small{display:block;font-size:10px;color:var(--muted);margin-top:4px}
+nav{display:flex;gap:5px;flex-wrap:wrap}
+nav a,nav button{
+  padding:10px;border:0;border-radius:8px;background:transparent;
+  color:var(--muted);font-size:12px;font-weight:bold
+}
+nav a:hover,nav button:hover{background:var(--soft);color:var(--green)}
+.btn{
+  display:inline-flex;justify-content:center;align-items:center;gap:6px;
+  padding:11px 14px;border:0;border-radius:10px;
+  font-size:12px;font-weight:bold;text-decoration:none
+}
+.primary{background:var(--green);color:white}
+.secondary{background:var(--soft);color:var(--green)}
+.outline{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.hero{padding:25px 0 15px}
+.banner{
+  padding:clamp(25px,5vw,55px);border-radius:25px;color:white;
+  background:radial-gradient(circle at 85% 15%,#55d2a355,transparent 30%),
+  linear-gradient(125deg,#073b2d,#0b604b,#159473)
+}
+.badge{
+  display:inline-block;border:1px solid #ffffff60;
+  padding:8px 12px;border-radius:30px;font-size:11px;font-weight:bold
+}
+.banner h1{font-size:clamp(36px,6vw,60px);line-height:1.05;margin:22px 0 12px}
+.banner h1 span{color:#a8f2cd}
+.banner p{max-width:650px;line-height:1.7;color:#e1f5e9;font-size:14px}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.white{background:white;color:var(--green)}
+.glass{background:#ffffff18;color:white;border:1px solid #ffffff65}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.stat{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:15px;padding:15px;display:flex;gap:10px;align-items:center
+}
+.stat .emoji{font-size:23px;background:var(--soft);padding:9px;border-radius:10px}
+.stat strong{display:block;font-size:17px}
+.stat small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+section{padding:25px 0}
+.kicker{font-size:10px;font-weight:900;letter-spacing:1.5px;color:var(--green2)}
+.heading{font-size:clamp(25px,4vw,35px);margin:7px 0}
+.muted{font-size:12px;color:var(--muted);line-height:1.7}
+.filters{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:8px;background:var(--card);border:1px solid var(--border);
+  border-radius:15px;padding:10px
+}
+.search{
+  display:flex;gap:8px;align-items:center;padding:0 10px;
+  border:1px solid var(--border);border-radius:9px;background:var(--bg)
+}
+.search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--text);padding:12px 0}
+select{
+  min-width:0;padding:11px;border:1px solid var(--border);
+  border-radius:9px;background:var(--bg);color:var(--text);font-size:12px
+}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}
+.chip{
+  border:1px solid var(--border);background:var(--card);color:var(--muted);
+  border-radius:30px;padding:9px 12px;font-size:11px;font-weight:bold
+}
+.chip.active{background:var(--soft);color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.book{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;display:flex;flex-direction:column
+}
+.cover{
+  display:flex;align-items:center;gap:13px;padding:17px;
+  background:linear-gradient(130deg,var(--soft),var(--card));min-height:125px
+}
+.book-icon{
+  flex:0 0 68px;height:82px;border-radius:8px 12px 12px 8px;
+  display:grid;place-items:center;font-size:32px;color:white;
+  background:linear-gradient(135deg,#214e88,#5c9be2);
+  box-shadow:inset 5px 0 #ffffff28
+}
+.green-icon{background:linear-gradient(135deg,#07503b,#26a77a)}
+.purple-icon{background:linear-gradient(135deg,#6541a2,#a482d5)}
+.orange-icon{background:linear-gradient(135deg,#a65419,#e99c45)}
+.cover h3{font-size:16px;margin:7px 0}
+.cover p{font-size:11px;color:var(--muted);margin:0}
+.type{font-size:9px;font-weight:900;letter-spacing:1px;color:var(--green2)}
+.book-body{padding:15px;display:flex;flex-direction:column;gap:11px;flex:1}
+.tags{display:flex;gap:5px;flex-wrap:wrap}
+.tag{font-size:9px;font-weight:bold;padding:6px 8px;border-radius:7px;background:var(--soft);color:var(--green)}
+.book-body>p{font-size:12px;color:var(--muted);line-height:1.6;flex:1}
+.book-buttons{display:flex;gap:7px;flex-wrap:wrap}
+.book-buttons .btn{flex:1;padding:10px 6px;font-size:11px}
+.book-footer{
+  border-top:1px solid var(--border);padding-top:10px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:8px;font-size:10px;color:var(--muted)
+}
+.fav{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 9px;color:var(--text)}
+.fav.saved{color:#d53c65}
+.empty{display:none;padding:25px;text-align:center;border:1px dashed var(--border);border-radius:13px;color:var(--muted)}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
+.panel h3{margin-top:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.directory{display:flex;flex-wrap:wrap;gap:7px}
+.directory button{
+  border:1px solid var(--border);border-radius:9px;padding:10px;
+  background:var(--bg);color:var(--text);font-size:11px;font-weight:bold
+}
+.directory button:hover{background:var(--soft);color:var(--green)}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tool{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+.tool .icon{font-size:26px}
+.tool h3{font-size:13px;margin:9px 0}
+.tool p{font-size:11px;color:var(--muted);line-height:1.6}
+.reader{display:none;padding:20px 0 40px}
+.reader-box{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.reader-head{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;padding:15px;background:var(--soft)
+}
+.reader-head h2{font-size:18px;margin:0 0 5px}
+.reader-head p{font-size:11px;color:var(--muted);margin:0}
+.reader-actions{display:flex;flex-wrap:wrap;gap:6px}
+.reader-actions .btn{font-size:11px;padding:10px}
+.reader-tip{padding:12px 15px;border-bottom:1px solid var(--border);font-size:11px;color:var(--muted)}
+iframe{width:100%;height:72vh;min-height:400px;border:0;display:block;background:#e7eee9}
+.warning{margin:14px;padding:13px;background:#fff3d6;color:#765617;border-radius:9px;font-size:11px;line-height:1.6}
+.page-tool{display:none;padding:16px;border-top:1px solid var(--border)}
+.page-tool p{font-size:12px;color:var(--muted);line-height:1.6}
+.page-controls{display:flex;align-items:end;gap:9px;flex-wrap:wrap}
+.page-controls label{display:grid;gap:5px;font-size:11px;font-weight:bold}
+.page-controls input{width:105px;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text)}
+#status{font-size:12px;color:var(--green2);margin-top:12px;min-height:18px}
+footer{background:#082f25;color:white;margin-top:20px;padding:25px 0}
+.footer-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer p,footer small{font-size:11px;color:#bad9cc}
+.toast{
+  display:none;position:fixed;bottom:15px;left:50%;transform:translateX(-50%);
+  background:#123b2e;color:white;padding:12px 16px;border-radius:10px;z-index:30;font-size:12px
+}
+@media(max-width:850px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .filters{grid-template-columns:1fr 1fr}
+ .tools{grid-template-columns:repeat(2,1fr)}
+ .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:580px){
+ .nav{min-height:65px}
+ nav{display:none;position:absolute;top:65px;left:0;right:0;padding:12px;background:var(--card);flex-direction:column}
+ nav.open{display:flex}
+ .grid,.two-col{grid-template-columns:1fr}
+ .filters{grid-template-columns:1fr}
+ .banner{border-radius:19px}
+ .stats{gap:7px}
+ .stat{padding:10px}
+ .tools{grid-template-columns:1fr 1fr}
+ iframe{height:62vh;min-height:360px}
+}
 </style>
 </head>
+
 <body>
-<header id="top">
-  <nav>
-    <a href="#home" class="brand">GHS-<span>FreeBooks</span></a>
-    <div class="navlinks">
-      <a href="#home">Home</a>
-      <a href="#books">Books</a>
-      <a href="#subjects">Subjects</a>
-      <a href="#publishers">Publishers</a>
-    </div>
+<header>
+ <div class="wrap nav">
+  <a class="brand" href="#" onclick="goHome();return false">
+   <span class="logo">📚</span>
+   <span>GHS-FreeBooks<small>GOVERNMENT HIGH SCHOOL SIVIA</small></span>
+  </a>
+  <nav id="nav">
+   <a href="#library" onclick="closeNav()">Library</a>
+   <a href="#syllabus" onclick="closeNav()">Syllabus</a>
+   <a href="#publishers" onclick="closeNav()">Publishers</a>
+   <a href="#tools" onclick="closeNav()">Tools</a>
+   <button onclick="toggleTheme()">🌗 Theme</button>
   </nav>
-  <div class="hero">
-    <span class="eyebrow">✦ YOUR CLASS 9 LEARNING HUB</span>
-    <h1>Every Book.<br>One Better <span>Future.</span></h1>
-    <p>Welcome to GHS-FreeBooks — explore your Class 9 books, discover subjects, read PDFs online and study at your own pace.</p>
-    <div class="hero-actions">
-      <a class="btn btn-light" href="#books">Explore Books &nbsp; →</a>
-      <a class="btn" href="#subjects" style="background:#ffffff18;color:white;border:1px solid #ffffff45">Browse Subjects</a>
-    </div>
-  </div>
+  <button class="btn outline" onclick="document.getElementById('nav').classList.toggle('open')">☰ Menu</button>
+ </div>
 </header>
 
-<main>
-<section id="home">
-  <div class="panel search-panel">
-    <div class="search-heading">
-      <div>
-        <h2>Find your next chapter</h2>
-        <div class="hint">Search books and filter by medium or board.</div>
-      </div>
-      <span class="badge">CLASS 9 LIBRARY</span>
-    </div>
-    <div class="filters">
-      <input id="search" type="search" placeholder="⌕  Search books or subjects..." aria-label="Search books">
-      <select id="medium" aria-label="Filter by medium">
-        <option value="">All mediums</option>
-        <option value="English">English</option>
-        <option value="Urdu">Urdu</option>
-      </select>
-      <select id="board" aria-label="Filter by board">
-        <option value="">All boards</option>
-        <option value="Punjab">Punjab</option>
-        <option value="Sindh">Sindh</option>
-        <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
-        <option value="Balochistan">Balochistan</option>
-        <option value="Federal">Federal</option>
-      </select>
-    </div>
-    <p class="hint" style="margin-bottom:0">PDF editions and syllabus can vary. Please verify the edition required by your school.</p>
+<main id="homePage">
+<div class="wrap hero">
+ <div class="banner">
+  <span class="badge">✦ CLASS 9 • PAKISTAN</span>
+  <h1>One library.<br><span>More ways to learn.</span></h1>
+  <p>Explore textbooks, search subjects, browse publishers, read PDF books online, download complete books and create PDFs from selected pages.</p>
+  <div class="actions">
+   <a class="btn white" href="#library">📚 Browse Library →</a>
+   <a class="btn glass" href="#syllabus">🗂️ Syllabus & Boards</a>
+   <button class="btn glass" onclick="showSaved()">♡ Saved Books</button>
   </div>
+ </div>
+ <div class="stats">
+  <div class="stat"><span class="emoji">📘</span><div><strong id="bookCount">2</strong><small>Book records</small></div></div>
+  <div class="stat"><span class="emoji">🏫</span><div><strong>Class 9</strong><small>Learning level</small></div></div>
+  <div class="stat"><span class="emoji">🔎</span><div><strong>Smart search</strong><small>Title & subject</small></div></div>
+  <div class="stat"><span class="emoji">⬇️</span><div><strong>PDF tools</strong><small>Read & download</small></div></div>
+ </div>
+</div>
 
-  <div class="stats">
-    <div class="stat"><span class="stat-icon">📚</span><div><strong id="bookCount">0</strong><span>Available books</span></div></div>
-    <div class="stat"><span class="stat-icon">🔎</span><div><strong>21+</strong><span>Subjects to explore</span></div></div>
-    <div class="stat"><span class="stat-icon">🌐</span><div><strong>5</strong><span>Board filters</span></div></div>
-  </div>
+<section id="library">
+<div class="wrap">
+ <div class="kicker">STUDENT BOOKSHELF</div>
+ <h2 class="heading">Explore Your Books</h2>
+ <p class="muted">Search by book, subject, publisher or board. Use the filters to find a book.</p>
 
-  <h2 class="section-title" id="books">Available Class 9 Books</h2>
-  <p class="section-subtitle">Open a book to read online or download its PDF.</p>
-  <div id="bookGrid" class="grid"></div>
-  <p id="noResults" class="hint hidden empty">No matching books found. Try another search or filter.</p>
+ <div class="filters">
+  <label class="search">🔎 <input id="search" placeholder="Search books, subjects..." oninput="filterBooks()"></label>
+  <select id="subjectFilter" onchange="filterBooks()">
+   <option value="all">All subjects</option>
+   <option>Computer Science</option><option>Islamiyat</option>
+   <option>Mathematics</option><option>Physics</option>
+   <option>Chemistry</option><option>Biology</option>
+   <option>English</option><option>Urdu</option><option>Pakistan Studies</option>
+  </select>
+  <select id="boardFilter" onchange="filterBooks()">
+   <option value="all">All boards</option>
+   <option>Punjab</option><option>Federal</option><option>Sindh</option>
+   <option>KPK</option><option>Balochistan</option><option>AJK</option>
+  </select>
+  <select id="mediumFilter" onchange="filterBooks()">
+   <option value="all">Both mediums</option><option>English</option><option>Urdu</option>
+  </select>
+ </div>
 
-  <h2 class="section-title" id="subjects">Explore Subjects</h2>
-  <p class="section-subtitle">Choose a subject to see whether its book is available.</p>
-  <div id="subjectGrid" class="category-grid"></div>
+ <div class="chips">
+  <button class="chip active" onclick="setMode('all',this)">All Books</button>
+  <button class="chip" onclick="setMode('recent',this)">🆕 Recently Added</button>
+  <button class="chip" onclick="setMode('popular',this)">🔥 Popular</button>
+  <button class="chip" onclick="showSaved()">♡ My Saved Books</button>
+  <button class="chip" onclick="pickSubject('Computer Science')">💻 Computer Science</button>
+  <button class="chip" onclick="pickSubject('Islamiyat')">☪️ Islamiyat</button>
+  <button class="chip" onclick="resetFilters()">↻ Reset Filters</button>
+ </div>
 
-  <h2 class="section-title" id="publishers">Publishers &amp; Boards</h2>
-  <p class="section-subtitle">Browse available publishers and textbook boards.</p>
-  <div id="publisherGrid" class="category-grid"></div>
+ <div class="grid" id="bookGrid">
+  <article class="book" data-id="computer" data-title="Computer Science" data-subject="Computer Science" data-board="Punjab" data-medium="English" data-publisher="Punjab Curriculum and Textbook Board" data-popular="25">
+   <div class="cover">
+    <div class="book-icon">💻</div>
+    <div><div class="type">CLASS 09 • TEXTBOOK</div><h3>Computer Science</h3><p>Computing & Digital Skills</p></div>
+   </div>
+   <div class="book-body">
+    <div class="tags"><span class="tag">📄 PDF</span><span class="tag">Punjab</span><span class="tag">English</span></div>
+    <p>Open the book online, download the complete PDF or make a smaller PDF from selected pages.</p>
+    <div class="book-buttons">
+     <button class="btn primary" onclick="openBook('computer')">📖 Read Book</button>
+     <a class="btn outline" href="class9-computer-science.pdf" download>⬇️ Download</a>
+    </div>
+    <div class="book-footer"><span>Punjab textbook record</span><button class="fav" data-fav="computer" onclick="toggleFav('computer')">♡ Save</button></div>
+   </div>
+  </article>
+
+  <article class="book" data-id="islamiyat" data-title="Islamiyat Islamiat Islamic Studies" data-subject="Islamiyat" data-board="Punjab" data-medium="Urdu" data-publisher="Punjab Curriculum and Textbook Board" data-popular="23">
+   <div class="cover">
+    <div class="book-icon green-icon">☪️</div>
+    <div><div class="type">CLASS 09 • TEXTBOOK</div><h3>Islamiyat</h3><p>Learning & Character</p></div>
+   </div>
+   <div class="book-body">
+    <div class="tags"><span class="tag">📄 PDF</span><span class="tag">Punjab</span><span class="tag">Urdu*</span></div>
+    <p>Read the textbook in the online reader, download the full PDF or export selected pages.</p>
+    <div class="book-buttons">
+     <button class="btn primary" onclick="openBook('islamiyat')">📖 Read Book</button>
+     <a class="btn outline" href="class9-islamiyat.pdf" download>⬇️ Download</a>
+    </div>
+    <div class="book-footer"><span>Punjab textbook record</span><button class="fav" data-fav="islamiyat" onclick="toggleFav('islamiyat')">♡ Save</button></div>
+   </div>
+  </article>
+ </div>
+ <div class="empty" id="empty">No matching books. Try changing the search or filters.</div>
+ <p class="muted">Currently, two sample book records are included. Add more book records and upload their PDFs to expand the library. Filter choices alone do not automatically create or fetch books.</p>
+</div>
 </section>
 
-<section id="detailPage" class="detail hidden"></section>
-<section id="readerPage" class="reader hidden"></section>
-<section id="soonPage" class="soon hidden"></section>
+<section id="syllabus">
+<div class="wrap">
+ <div class="kicker">COURSE PLANNER</div><h2 class="heading">Class 9 Syllabus Corner</h2>
+ <p class="muted">Tap any subject or board to filter the available book records.</p>
+ <div class="two-col">
+  <div class="panel">
+   <h3>🗂️ Browse by Subject</h3>
+   <div class="directory">
+    <button onclick="pickSubject('Computer Science')">💻 Computer Science</button>
+    <button onclick="pickSubject('Islamiyat')">☪️ Islamiyat</button>
+    <button onclick="pickSubject('Mathematics')">➗ Mathematics</button>
+    <button onclick="pickSubject('Physics')">⚛️ Physics</button>
+    <button onclick="pickSubject('Chemistry')">🧪 Chemistry</button>
+    <button onclick="pickSubject('Biology')">🧬 Biology</button>
+    <button onclick="pickSubject('English')">🔤 English</button>
+    <button onclick="pickSubject('Urdu')">📝 Urdu</button>
+    <button onclick="pickSubject('Pakistan Studies')">🇵🇰 Pakistan Studies</button>
+   </div>
+  </div>
+  <div class="panel">
+   <h3>🇵🇰 Boards & Medium</h3>
+   <p class="muted">Choose the relevant board and language for the edition you need.</p>
+   <div class="directory">
+    <button onclick="pickBoard('Punjab')">Punjab</button>
+    <button onclick="pickBoard('Federal')">Federal / FBISE</button>
+    <button onclick="pickBoard('Sindh')">Sindh</button>
+    <button onclick="pickBoard('KPK')">KPK</button>
+    <button onclick="pickBoard('Balochistan')">Balochistan</button>
+    <button onclick="pickBoard('AJK')">AJK</button>
+    <button onclick="pickMedium('English')">English Medium</button>
+    <button onclick="pickMedium('Urdu')">Urdu Medium</button>
+   </div>
+  </div>
+ </div>
+</div>
+</section>
+
+<section id="publishers">
+<div class="wrap">
+ <div class="kicker">PUBLISHER DIRECTORY</div><h2 class="heading">Browse by Publisher</h2>
+ <p class="muted">Choose a publisher to filter the books currently listed under that publisher.</p>
+ <div class="panel">
+  <div class="directory">
+   <button onclick="pickPublisher('Punjab Curriculum and Textbook Board')">Punjab Curriculum & Textbook Board</button>
+   <button onclick="pickPublisher('Federal Textbook Board')">Federal Textbook Board</button>
+   <button onclick="pickPublisher('Sindh Textbook Board')">Sindh Textbook Board</button>
+   <button onclick="pickPublisher('KPK Textbook Board')">KPK Textbook Board</button>
+   <button onclick="pickPublisher('Balochistan Textbook Board')">Balochistan Textbook Board</button>
+   <button onclick="pickPublisher('all')">Show All</button>
+  </div>
+  <p class="muted">These are publisher filter options. Their complete catalogs are not automatically included; add each book and its correct PDF to list it.</p>
+ </div>
+</div>
+</section>
+
+<section id="tools">
+<div class="wrap">
+ <div class="kicker">STUDY TOOLKIT</div><h2 class="heading">More Useful Options</h2>
+ <div class="tools">
+  <div class="tool"><div class="icon">📖</div><h3>Online PDF Reader</h3><p>Open a book inside the website and use the PDF toolbar.</p></div>
+  <div class="tool"><div class="icon">⬇️</div><h3>Full Book Download</h3><p>Save the complete textbook PDF to your device.</p></div>
+  <div class="tool"><div class="icon">✂️</div><h3>Page Downloader</h3><p>Create a separate PDF from a page range you choose.</p></div>
+  <div class="tool"><div class="icon">♡</div><h3>Saved Books</h3><p>Favourite book choices are saved in this browser.</p></div>
+  <div class="tool"><div class="icon">🔎</div><h3>Smart Search</h3><p>Search book titles, subjects, boards and publishers.</p></div>
+  <div class="tool"><div class="icon">🌗</div><h3>Dark Theme</h3><p>Switch appearance; preference stays on this device.</p></div>
+  <div class="tool"><div class="icon">📱</div><h3>Mobile Friendly</h3><p>Responsive layout for phones, tablets and desktops.</p></div>
+  <div class="tool"><div class="icon">🧹</div><h3>Quick Reset</h3><p>Clear active search and filters with one tap.</p></div>
+ </div>
+</div>
+</section>
+
+<section id="about">
+<div class="wrap panel">
+ <div class="kicker">ABOUT THIS PROJECT</div>
+ <h2 class="heading">Books, Syllabus & Learning — All in One Place.</h2>
+ <p class="muted">Made for Government High School Sivia. <b>Credit: Asher</b>. Upload only PDFs you have permission to share.</p>
+</div>
+</section>
 </main>
 
-<footer>
-  <strong>GHS-FreeBooks</strong><br>
-  Books, Syllabus &amp; Learning — All in One Place.<br>
-  Government High School Sivia • Website credit: Asher<br>
-  <span>Educational project. Verify textbook editions and publisher details before use.</span>
-</footer>
-
-<script>
-"use strict";
-
-const books=[
-  {
-    id:"computer-science",
-    title:"Computer Science",
-    className:"Class 9",
-    medium:"English",
-    board:"Punjab",
-    publisher:"Check the publisher printed in your textbook",
-    file:"./class9-computer-science.pdf",
-    description:"Class 9 Computer Science textbook PDF."
-  },
-  {
-    id:"islamiyat",
-    title:"Islamiyat",
-    className:"Class 9",
-    medium:"Urdu",
-    board:"Punjab",
-    publisher:"Check the publisher printed in your textbook",
-    file:"./class9-islamiyat.pdf",
-    description:"Class 9 Islamiyat textbook PDF."
-  }
-];
-
-const subjects=[
-  "Mathematics","Physics","Chemistry","Biology","Computer Science",
-  "English","Urdu","Islamiyat","Pakistan Studies","General Science",
-  "Tarjuma-tul-Quran","Geography","History","Economics","Civics",
-  "Arabic","Punjabi","Sindhi","Pashto","Balochi",
-  "Health & Physical Education"
-];
-
-const publishers=[
-  "PECTAA / Punjab","Sindh Textbook Board",
-  "Khyber Pakhtunkhwa Textbook Board","Balochistan Textbook Board",
-  "Federal / National Book Foundation","Oxford University Press Pakistan",
-  "Paramount Books","Ferozsons","Afaq","Caravan Book House",
-  "Ilmi Kitab Khana","Dogar Publishers","Jahangir's World Times"
-];
-
-const $=id=>document.getElementById(id);
-const grid=$("bookGrid");
-
-function escapeHTML(value){
-  return String(value).replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[c]));
-}
-
-function iconBook(){
-  return '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M8 13h18a8 8 0 0 1 8 8v31a8 8 0 0 0-8-8H8z"/><path d="M56 13H38a8 8 0 0 0-4 1v38a8 8 0 0 1 8-8h14z"/></svg>';
-}
-
-function renderBooks(){
-  const query=$("search").value.trim().toLowerCase();
-  const medium=$("medium").value;
-  const board=$("board").value;
-  const filtered=books.filter(book=>{
-    const text=[book.title,book.className,book.medium,book.board,book.publisher,book.description].join(" ").toLowerCase();
-    return text.includes(query)&&(!medium||book.medium===medium)&&(!board||book.board===board);
-  });
-
-  grid.innerHTML=filtered.map(book=>`
-    <article class="book">
-      <div class="cover">${iconBook()}</div>
-      <span class="badge">✓ PDF listed</span>
-      <h3>${escapeHTML(book.title)}</h3>
-      <div class="meta">
-        Class: ${escapeHTML(book.className)}<br>
-        Board: ${escapeHTML(book.board)}<br>
-        Medium: ${escapeHTML(book.medium)}<br>
-        Publisher: ${escapeHTML(book.publisher)}
-      </div>
-      <p class="hint">${escapeHTML(book.description)}</p>
-      <button class="btn btn-primary" onclick="openBook('${book.id}')">View Book →</button>
-    </article>
-  `).join("");
-
-  $("bookCount").textContent=books.length;
-  $("noResults").classList.toggle("hidden",filtered.length>0);
-}
-
-function renderCategories(){
-  $("subjectGrid").innerHTML=subjects.map(subject=>`
-    <button class="category" onclick="openSubject('${escapeHTML(subject)}')">
-      <span>${escapeHTML(subject)}</span><span aria-hidden="true">↗</span>
-    </button>
-  `).join("");
-
-  $("publisherGrid").innerHTML=publishers.map(publisher=>`
-    <button class="category" onclick="openPublisher('${escapeHTML(publisher)}')">
-      <span>${escapeHTML(publisher)}</span><span aria-hidden="true">↗</span>
-    </button>
-  `).join("");
-}
-
-function hidePages(){
-  $("home").classList.add("hidden");
-  $("detailPage").classList.add("hidden");
-  $("readerPage").classList.add("hidden");
-  $("soonPage").classList.add("hidden");
-}
-
-function showHome(){
-  hidePages();
-  $("home").classList.remove("hidden");
-  window.scrollTo(0,0);
-}
-
-function openBook(id){
-  const book=books.find(item=>item.id===id);
-  if(!book)return;
-  location.hash="book/"+id;
-  showBook(book);
-}
-
-function showBook(book){
-  if(!book)return showHome();
-  hidePages();
-  const page=$("detailPage");
-  page.classList.remove("hidden");
-  page.innerHTML=`
-    <a class="back" href="#home" onclick="showHome()">← Back to Library</a>
-    <div class="cover">${iconBook()}</div>
-    <span class="badge" style="margin-top:15px">CLASS 9 · PDF</span>
-    <h1>${escapeHTML(book.title)}</h1>
-    <p>${escapeHTML(book.description)}</p>
-    <div class="meta">
-      Board: ${escapeHTML(book.board)}<br>
-      Medium: ${escapeHTML(book.medium)}<br>
-      Publisher: ${escapeHTML(book.publisher)}
-    </div>
-    <div class="notice" style="margin:18px 0">
-      This book opens the PDF uploaded to this website repository. Check that it matches your required textbook edition.
-    </div>
-    <div class="actions">
-      <button class="btn btn-primary" onclick="readBook('${book.id}')">Read Online</button>
-      <a class="btn btn-soft" href="${book.file}" download="${book.id}.pdf">Download PDF</a>
-    </div>
-    <div class="field">
-      <h2>Download selected pages</h2>
-      <p class="hint">Example: 1-3,5,8-10. Page numbers must exist in the PDF.</p>
-      <label for="pageRange">Pages to include</label>
-      <input id="pageRange" type="text" placeholder="e.g. 1-3,5,8-10">
-      <button class="btn btn-primary" style="margin-top:10px;width:100%" onclick="downloadSelected('${book.id}')">Create Selected-Pages PDF</button>
-      <p id="pageStatus" class="hint" role="status"></p>
-    </div>
-  `;
-  window.scrollTo(0,0);
-}
-
-function readBook(id){
-  const book=books.find(item=>item.id===id);
-  if(!book)return;
-  location.hash="read/"+id;
-  renderReader(book);
-}
-
-function renderReader(book){
-  hidePages();
-  const page=$("readerPage");
-  page.classList.remove("hidden");
-  page.innerHTML=`
-    <a class="back" href="#book/${book.id}" onclick="showBook(books.find(b=>b.id==='${book.id}'))">← Back to Book</a>
-    <h1>${escapeHTML(book.title)} — Read Online</h1>
-    <p class="hint">If the embedded viewer is blank, open the PDF separately.</p>
-    <div class="actions" style="margin:14px 0">
-      <a class="btn btn-primary" href="${book.file}" target="_blank" rel="noopener">Open PDF ↗</a>
-      <a class="btn btn-soft" href="${book.file}" download="${book.id}.pdf">Download PDF</a>
-    </div>
-    <iframe class="reader-frame" src="${book.file}" title="${escapeHTML(book.title)} PDF reader"></iframe>
-  `;
-  window.scrollTo(0,0);
-}
-
-async function downloadSelected(id){
-  const book=books.find(item=>item.id===id);
-  const status=$("pageStatus");
-  const raw=$("pageRange").value.trim();
-  if(!raw){status.textContent="Pehle page numbers enter karo, e.g. 1-3,5.";return;}
-  if(!/^\d+(-\d+)?(,\s*\d+(-\d+)?)*$/.test(raw)){
-    status.textContent="Format sahi nahi. Example: 1-3,5,8-10";return;
-  }
-
-  status.textContent="PDF process ho rahi hai. Please wait...";
-  try{
-    if(!window.PDFLib){
-      await new Promise((resolve,reject)=>{
-        const script=document.createElement("script");
-        script.src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js";
-        script.onload=resolve;
-        script.onerror=()=>reject(new Error("PDF library load nahi hui. Internet check karo."));
-        document.head.appendChild(script);
-      });
-    }
-
-    const response=await fetch(book.file);
-    if(!response.ok)throw new Error("PDF file nahi mili. GitHub par filename check karo.");
-    const sourcePdf=await PDFLib.PDFDocument.load(await response.arrayBuffer());
-    const totalPages=sourcePdf.getPageCount();
-    const selected=new Set();
-
-    raw.split(",").forEach(part=>{
-      const bits=part.trim().split("-").map(Number);
-      const start=bits[0],end=bits.length===2?bits[1]:bits[0];
-      if(start<1||end<start||end>totalPages){
-        throw new Error("Page range invalid hai. PDF mein total "+totalPages+" pages hain.");
-      }
-      for(let n=start;n<=end;n++)selected.add(n-1);
-    });
-
-    const output=await PDFLib.PDFDocument.create();
-    const pages=await output.copyPages(sourcePdf,[...selected].sort((a,b)=>a-b));
-    pages.forEach(page=>output.addPage(page));
-
-    const blob=new Blob([await output.save()],{type:"application/pdf"});
-    const url=URL.createObjectURL(blob);
-    const a=document.createElement("a");
-    a.href=url;
-    a.download=book.id+"-selected-pages.pdf";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(()=>URL.revokeObjectURL(url),1000);
-    status.textContent="Selected-pages PDF ban gayi!";
-  }catch(error){
-    status.textContent="Error: "+error.message;
-  }
-}
-
-function openSubject(subject){
-  const matching=books.filter(b=>b.title.toLowerCase()===subject.toLowerCase());
-  if(matching.length){openBook(matching[0].id);return;}
-  showComingSoon(subject,"Is subject ki book abhi website par add nahi hui.");
-}
-
-function openPublisher(publisher){
-  const matching=books.filter(b=>b.publi
+<section class="reader" id="reader">
+<div class="wrap reader-box">
+ <div class="reader-head">
+  <div><h2 id="readerTitle">PDF Reader</h2><p id="readerSubtitle">GHS-FreeBooks</p></div>
+  <div class="reader-actions">
+   <a class="btn primary" id="fullDownload" href="#" download>⬇️ Full PDF</a>
+   <button class="btn outline" onclick="togglePageTool()">✂️ Selected Pages</button>
+   <button class="btn outline" onclick="goHome()">← Library</button>
+  </div>
+ </div>
+ <div class="reader-tip">Use the PDF toolbar to zoom, navigate pages and search text when supported by your browser.</div>
+ <iframe id="pdfFrame" title="Textbook PDF reader" src="about:blank"></iframe>
+ <div class="warning">If the reader is blank, check that the PDF is uploaded beside index.html and its filename matches the code exactly. A missing PDF cannot be opened by the website.</div>
+ <div class="page-t
